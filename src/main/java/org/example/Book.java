@@ -16,6 +16,12 @@ public class Book extends LibraryItem {
 
     @Override
     public String toString() {
+        if (title == null) {
+            throw new RuntimeException("Title is Null ");
+        }
+        if (year > 2000) {
+            throw new RuntimeException("The year is invalid ");
+        }
         return "Book: " + title + " by " + author + " (" + year + ") - " + pageCount + " pages";
     }
 

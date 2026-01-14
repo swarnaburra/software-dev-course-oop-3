@@ -4,19 +4,28 @@ public class Album extends LibraryItem {
     protected int trackCount;
 
 
-    public Album(String title, int year, String author, int trackCount ){
+    public Album(String title, int year, String author, int trackCount) {
         super(title, year, author);
-        this.trackCount= trackCount;
+        this.trackCount = trackCount;
 
-         }
-         public int getTrackCount(){
+    }
+
+    public int getTrackCount() {
         return trackCount;
-         }
+    }
 
-         @Override
+    @Override
     public String toString() {
 
-        return "Album: " + title + " by " + author + " (" + year + ") - " + trackCount + " tracks" ;
-         }
+        if (title == null) {
+            throw new RuntimeException("Title is Null ");
+        }
+
+        if (year > 2000) {
+            throw new RuntimeException("The year is invalid ");
+        }
+
+        return "Album: " + title + " by " + author + " (" + year + ") - " + trackCount + " tracks";
+    }
 
 }

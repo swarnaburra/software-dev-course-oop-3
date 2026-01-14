@@ -20,9 +20,41 @@ public class BookTests {
         assertEquals("Book: The Catcher in the Rye by J.D. Salinger (1951) - 234 pages", book.toString());
     }
 
+
     @Test
     public void testReadBook() {
         Book book = new Book("The Catcher in the Rye", 1951, "J.D. Salinger", 234);
         book.readBook();
     }
-}
+
+    //Negative Test Case
+
+    @Test
+    public void testBookToStringTitleIsNull() {
+        try {
+            Book book = new Book(null, 1973, "Pink Floyd", 10);
+            book.toString();
+
+            fail("Expected RuntimeException was not thrown");
+
+        } catch (RuntimeException e){
+            assertEquals("Wrong Exception message", "Title is Null " , e.getMessage());
+        }
+    }
+
+    //Edge case with year is future year
+
+    @Test
+    public void testBookToStringYearIsInvalid() {
+        try {
+            Book book = new Book("The Dark Knight", 3000, "Christopher Nolan", 152);
+
+           book.toString();
+
+            fail("Expected RuntimeException was not thrown");
+
+        } catch (RuntimeException e) {
+            assertEquals("Wrong Exception message", "The year is invalid ", e.getMessage());
+        }
+
+    }}

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e654d077-1dfc-4957-ac19-1f87429c9084" name="Changes" comment="">
+    <list default="true" id="e654d077-1dfc-4957-ac19-1f87429c9084" name="Changes" comment=" *Implemented LibraryItem class&#10; *Implemented Movie subclass&#10; *Implemented Book subclass&#10; *Implemented Album subclass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LibraryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LibraryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AlbumTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AlbumTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/BookTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/BookTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/LibraryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/LibraryTests.java" afterDir="false" />
@@ -55,15 +58,24 @@
     "Application.Main.executor": "Run",
     "JUnit.AlbumTests.executor": "Run",
     "JUnit.AlbumTests.testAlbumToString.executor": "Run",
+    "JUnit.AlbumTests.testAlbumToStringTitleIsNull.executor": "Run",
+    "JUnit.AlbumTests.testAlbumToStringYearIsInvalid.executor": "Debug",
     "JUnit.AlbumTests.testCreateAlbum.executor": "Run",
     "JUnit.All in software-dev-course-oop-3.executor": "Run",
     "JUnit.BookTests.executor": "Run",
+    "JUnit.BookTests.testAlbumToStringTitleIsNull.executor": "Run",
+    "JUnit.BookTests.testBookToStringTitleIsNull.executor": "Run",
+    "JUnit.BookTests.testBookToStringYearIsInvalid.executor": "Run",
     "JUnit.BookTests.testCreateBook.executor": "Run",
     "JUnit.LibraryTests.executor": "Run",
     "JUnit.LibraryTests.testBuildLibrary.executor": "Run",
+    "JUnit.LibraryTests.testLibraryItemNegativeYear.executor": "Run",
+    "JUnit.LibraryTests.testLibraryItemNegativeYearThrowsException.executor": "Run",
     "JUnit.MovieTests.executor": "Run",
     "JUnit.MovieTests.testCreateMovie.executor": "Run",
     "JUnit.MovieTests.testMovieToString.executor": "Run",
+    "JUnit.MovieTests.testMovieToStringTitleIsNull.executor": "Run",
+    "JUnit.MovieTests.testMovieToStringYearIsInvalid.executor": "Run",
     "JUnit.org.example in software-dev-course-oop-3.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -87,36 +99,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AlbumTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="software-dev-course-oop-3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.AlbumTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="software-dev-course-oop-3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.BookTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LibraryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="software-dev-course-oop-3" />
       <extension name="coverage">
@@ -132,7 +114,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryTests.testBuildLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="software-dev-course-oop-3" />
       <extension name="coverage">
         <pattern>
@@ -141,8 +123,41 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.MovieTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.example.LibraryTests" />
+      <option name="METHOD_NAME" value="testBuildLibrary" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTests.testLibraryItemNegativeYearThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="software-dev-course-oop-3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.LibraryTests" />
+      <option name="METHOD_NAME" value="testLibraryItemNegativeYearThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTests.testLibraryItemNullTitleThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="software-dev-course-oop-3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.LibraryTests" />
+      <option name="METHOD_NAME" value="testLibraryItemNullTitleThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MovieTests" />
+        <item itemvalue="JUnit.LibraryTests.testBuildLibrary" />
         <item itemvalue="JUnit.LibraryTests" />
-        <item itemvalue="JUnit.BookTests" />
-        <item itemvalue="JUnit.AlbumTests" />
+        <item itemvalue="JUnit.LibraryTests.testLibraryItemNullTitleThrowsException" />
+        <item itemvalue="JUnit.LibraryTests.testLibraryItemNegativeYearThrowsException" />
       </list>
     </recent_temporary>
   </component>
@@ -173,6 +188,27 @@
       <option name="presentableId" value="Default" />
       <updated>1738943626804</updated>
     </task>
+    <task id="LOCAL-00001" summary=" *Implemented LibraryItem class&#10; *Implemented Movie subclass&#10; *Implemented Book subclass&#10; *Implemented Album subclass">
+      <option name="closed" value="true" />
+      <created>1768323067939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1768323067939</updated>
+    </task>
+    <task id="LOCAL-00002" summary=" *Implemented LibraryItem class&#10; *Implemented Movie subclass&#10; *Implemented Book subclass&#10; *Implemented Album subclass">
+      <option name="closed" value="true" />
+      <created>1768323163000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768323163000</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" *Implemented LibraryItem class&#10; *Implemented Movie subclass&#10; *Implemented Book subclass&#10; *Implemented Album subclass" />
+    <option name="LAST_COMMIT_MESSAGE" value=" *Implemented LibraryItem class&#10; *Implemented Movie subclass&#10; *Implemented Book subclass&#10; *Implemented Album subclass" />
   </component>
 </project>

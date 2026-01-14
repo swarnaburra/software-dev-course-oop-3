@@ -1,33 +1,44 @@
 package org.example;
 
 public class LibraryItem {
- protected String title;
- protected int year;
- protected String author;
+    protected String title;
+    protected int year;
+    protected String author;
 
- public LibraryItem(String title, int year, String author){
-     this.title = title;
-     this.year = year;
-     this.author = author;
- }
+    public LibraryItem(String title, int year, String author) {
 
- public String getTitle() {
+        if (title == null) {
 
-     return title;
- }
+            throw new RuntimeException("Title is Null ");
+        }
 
- public int getYear(){
+        if (year < 0) {
 
-     return year;
- }
+            throw new RuntimeException("Year cannot be negative");
+        }
 
- public String getAuthor(){
+        this.title = title;
+        this.year = year;
+        this.author = author;
+    }
 
-     return author;
- }
+    public String getTitle() {
+
+        return title;
+    }
+
+    public int getYear() {
+
+        return year;
+    }
+
+    public String getAuthor() {
+
+        return author;
+    }
 
     @Override
     public String toString() {
-        return "Item:" + title + " by "+ author + " (" + year + ") ";
+        return "Item:" + title + " by " + author + " (" + year + ") ";
     }
 }
